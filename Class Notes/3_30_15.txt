@@ -1,0 +1,83 @@
+Chapter 2: Data Representation
+
+Kinds of Data
+-Numbers
+    -Integers
+        -Unsigned
+        -Signed
+    -Reals
+        -Fixed-point (This is what we'll use)
+        -Floating-point
+    -Binary-Coded Decimal
+-Text
+    -ASCII Characters
+    -Strings
+-Other
+    -Graphics
+    -Images
+    -Video
+    -Audio
+    
+Positional Nunber Systems
+    -Numeric values are represented by a sequence of digit symbols
+    -Symbols represent numeric values
+        -not limited to 0-9
+    -Each symbol's contribution to the total value of the number is weighted according to its position in the sequence
+    
+Polynomial Evaluation
+    Whole Numbers (Radix = 10)
+    
+Coverting Radix R to Decimal
+    36.78 (8) = 3*8^1 + 6*8^0 + y*8^-1 + 2*8^-2
+              = 24 + 6 + 0.875 + 0.03125
+              = 30.90625 (10)
+
+Variation on Polynomial Evaluation for converting fractional Values
+
+Decimal to Binary Conversion
+    -Whole part -> repeated division
+        457/10 = 45 R 7
+        45/10 = 4 R 5                           ---- 4/10 = 0 R 4
+        5/10 = 5 R 0
+    
+    Algorithm
+        Divide by target radix
+        remainders become digits in the new representation
+        digits produced in right to left order
+        quotient is used as next dividend
+        stop when quotient becomes zero, but use the corresponding remainder
+    
+    -Fractional part -> repeated multiplication
+        .xxx(10)
+        
+        .[0]1
+        2 * .xxx(10) -> X.xxx where X = 0 or 1
+        2 * .17 (10) = [0].34
+        2 * .68 = 1.36
+        
+    swimming metaphor
+        XXXXXXXXXXXXXX.xxxxxxxxxxxxxxx
+        right to left   left to right
+        
+        
+    Need to decide if you throw away (truncate) or round
+    
+    if(x==0.1)...... NO
+    if(fabs(x-0.1) < .0001)..... Yes
+    
+    12011.201 (3) = ?(9)
+    power relationship 3^[2] = 9
+    so 12|20|11|.|20|10
+    
+    9       3
+    -       -
+    0       00
+    1       01
+    2       02
+    3       10
+    4       11
+    5       12
+    6       20
+    7       21
+    8       22
+    
