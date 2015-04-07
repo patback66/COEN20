@@ -1,0 +1,35 @@
+Floating Point Representation
+
+Representation of Characters
+    store 8 bit binary pattern
+    charc c;
+    c = 'A'; //actually 01000001
+    printf("%d", c); // 41 b16
+    
+    Except for character escapes
+
+Representation oof strings
+    strings vs string constants
+    
+CHAPTER 3
+
+Which is Greater: 1001 or 0011
+    depends on interpretation
+    Hardware implementation can do both, just need to know how to 
+        interpret 
+        
+Subtraction
+    -N = N_bar +1
+    
+Multiplication
+    Max number digits you can get as a product:
+        sum of num digits in multipliers
+        
+        a = b * c;
+        single mul instruction
+        R3 <- R1 x R2
+        all 32 bit
+        
+        ((long long) a) x ((long long) b)
+        64 bit * 64 bit, result is 128 bit. But only get 64 bit back
+        

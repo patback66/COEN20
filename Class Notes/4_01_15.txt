@@ -1,0 +1,63 @@
+Rollover in Unsigned Binary
+    Different number line - NOT infinite
+    Unsigned Binary - 0 - 255
+        arithmetic overflow and rollover occur at the same point
+        ROLLOVER != OVERFLOW
+    
+    unsigned char x; //0<=x<=255
+    signed char x; //-128<=x<=+127
+    
+Sign+Magnitude?
+    hardware more complex and expensive
+    need to know which magnitude is larger, subtract smaller from larger
+        also add sign to result
+
+Why 2's complement
+    1 hardware device can do both signed an unsigned arithmetic
+    
+    0101 -> 1010 +1 -> 1011
+    
+    Easier Hand Method
+        start with lsb
+        copy down right to left until first 1
+        then inverse any remaining bits
+        
+Representation Width
+    MSB is 0 -> pos
+        convert as if unsigned
+    MSB is 1 -> neg
+        apply 2's comp to find bit pattern for pos magnitude
+        convert bit pattern to decimal
+        put minus sign in front
+        
+    need to not exceed range of representaion
+    
+Problem: 2's Comp Range
+    5 bits
+        -2^5-1 <--> +2^5-1 -1
+        -16 <---> +15
+    
+    On a midterm, you may be given
+        0101
+     +  0111
+     -------  likely also given a carry in, need to show carry ins/outs
+        
+Binary Subtraction
+     0101 X
+   - 0111 Y
+   --------
+   
+   01 +1
+   00 0
+   11 -1
+   10 -2
+   
+   Borrows propogate the same as carries: right to left
+   
+   
+Unsigned Overflow
+    need to add an extra bit for overflow
+    
+Signed Overflow
+    Overflow is impossible when adding (subtracting) numbers that have different (same) signs
+    
