@@ -1,0 +1,49 @@
+Embedded system:
+    minimize cost
+    Cheap processor
+        possibly no multiply or divide instructions
+        or they are very slow
+        
+Mumltiplication/Division by constants
+    1) Constant is a power of 2
+    2) Arbitray Constants
+    
+Arithmeetic Shifting
+
+Dividend
+            odd     even
+    pos     +       +
+    neg     off     +
+    
+    off by 1 (too negative)
+    
+
+Integer division
+    truncate, remove the fractional part
+    truncation during integer division truncates towards 0
+    
+Arithmetic shift right
+    truncates towards -infinity
+    
+chary x,y;
+    y=x/5;
+    y=(x*(256/5))>>8;
+        //double length product (16 bit product)
+        //keep most-significant 8 bits
+        
+8 bit example
+    A/y -> A * (256/7)
+    A*.36
+    
+    Ex: A = 100
+    100/4 -> 14 R 2
+    A*36 = 3600 = E10 = 0000 1110 0001 0000
+    
+Multiplication & Division by C=2^k
+    left shifts
+    
+Multiplication and Division by C!=2^k, arbitrary constant
+    combination of shifts, additions, and subtractions
+    
+Signed vs Unsigned Multiplication
+    
