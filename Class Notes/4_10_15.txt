@@ -1,0 +1,7 @@
+Converting 4-bit Unsigned Product to 2's Complement Product
+    Case 1: A>= 0 and B >= 0: No impact on AB
+    Case 2: A & B have different signs: No impact on AB
+    Case 3: A < 0 and B < 0: Inverts MSB twice
+    
+Fixed vs. Floating
+    
