@@ -1,0 +1,30 @@
+Chapter 4: Getting the Most out of C
+
+Chars and Ints
+    Don't need to store a char in a char
+    
+    
+    large       long long int   64
+                long in         32
+                
+                int             16/32
+                short int       16
+                
+    unsigned char
+        0<-->255
+    signed char
+        -128<-->+127
+        
+    
+Macros
+    #define
+
+Problems with macros
+    MACROS ARE ONLY STUPID TEXT REPLACEMENT
+    
+Boolean Expressions
+    C99 boolean data type
+    
+Clearing Bits
+    ~ inverts
+    
