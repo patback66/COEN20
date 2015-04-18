@@ -1,0 +1,85 @@
+x = y;
+
+uint64_t x, y;
+
+1) Bitwise Operators & Shifts
+    - Messy Syntax
+    
+2) Structure Bit-Fields
+    + Simplified syntax
+    - Bit-field order may vary among compilers
+    
+3) Variant Access
+    - Messy Syntax
+    
+4) Unions
+    + Simplified syntax
+    
+1, 2
+    Bit-fields may be aligned on arbitrary bit boundaries
+
+3, 4
+    Bit-fields must align on byte boundaries
+    
+32-bit CPU -> addresses are 32-bits wide
+            -> 2^32 addresses == 4GB
+            
+            read only memory (program instructions and constants
+            read-write memory -> variables
+            memory-mapped input/output devices
+                status port 
+                control port
+                data port
+            
+Ex: Display buffer    
+    uint8_t *p = (uint_t*)(0x20000 + row*320*3 + col*3)
+                            |
+                        starting address
+        *[[0] = green_intensity;
+        p[1] = blue_intensity;
+        p[2] = red_intensity
+    
+    typedef struct {
+        uint8_t green, blue, red;
+    } PIXEL;
+    
+    PIXEL *p;
+    p=(PIXEL *) 0x20000;
+    p=)p+320*row+col);
+    p.red=red_intensity;
+    
+Manipulating Bits in I/O ports
+
+    time = time | (minutes << 5);
+    write  read  |
+                modify
+                
+                
+    static uint8_t copy = 0x76; //power on default
+    copy |= (1<<2);
+    *pctlport = copy;
+    
+Monday Quiz: chapter 4
+
+
+struct {
+    uint8_t a;
+    uint32_t b;
+} x;
+    
+Pointer arithmetic
+    How many objects to move
+    
+    uint8_t *p;
+    p=(uint8_t)100; //interpret as address
+    p = p+1; //p <- 101
+    
+    uint32_t *p;
+    p=(uint32_t*t)100;
+    p=p+1; //p<-104
+    
+    uint32_t *p1, *p2, k;
+    p1 = (uint32_t *) 200;
+    p2 = (uint32_t *) 100;
+    k = p1-p2; //k <- 25
+
