@@ -1,0 +1,28 @@
+Begin Chapter 5
+MIDTERM MONDAY: CHAPTERS 1-5
+
+Separate Memory & I/O Busses
+
+The Fetch Phase
+
+result <- op1 + op2
+    Replace accumulator with register
+    
+CISC (Intel)
+    complex instruction set computer
+    1/2 control logic
+    ~several hundred instructions
+    ALU
+    ACC/Registers (a few ~8?)
+    
+RISC
+    Reduced instruction set computer
+    ~50 - 100 instructions
+    
+    Less control logic than CISC
+    More ALU, Registers (16-32)
+    Longer instruction sequences because less instructions
+    
+WE USE Load/Store Architecture
+    these are the only instructions that can access memory
+    still net savings of program size

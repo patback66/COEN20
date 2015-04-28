@@ -1,0 +1,88 @@
+4/24/15
+
+Quiz 3 Solutions
+
+1a. x<<=1;
+1b. x|=(1<<4);
+1c. x&=~(1<<4);
+
+2a. Packed variable of 32 bits
+    ((uint8_t *) &x)[2]+=1;
+    
+    
+    
+    
+2b. union {
+        uint8_t a[4];
+        uint16_t b[2];
+    } x;
+    
+    
+Binary subtraction
+
+   0 1 0 0 0 <- borrow in
+     1 0 1 1
+    -0 1 1 0
+    --------
+     0 1 0 1
+     
+     
+     -5
+     -(+6)
+     -----
+     -11
+     
+     Range:  -2^3 <-->+2^3-1
+     
+    
+    
+    
+    Bin     X       Y       |Sum|       Bout        D
+    0       0       0       0           0           0
+    0       0       -1      -1          1           1
+    0       1       0       1           0           1
+    0       1       -1      0           0           0
+    -1       0       0      -1          1           1
+    -1       0       -1     -2          1           0
+    -1       1       0      0           0           0
+    -1       1       -1     -1          1           1
+    
+    
+    
+    Overflow: is it signed or unsigned?
+        unsigned: overflow when MS half is non-zero
+        2's comp: overflow if and only if any bit of MS half != MS bit of LS half
+            0000 1000
+            ^ these need to be the same as the 1
+            
+            
+            
+    Reciprocal Multiplication
+        x/3 = x*[K/3]/K
+        
+            = (x * [2^N/3])>>N
+                double length product
+                
+        LDR R0,x
+        LDR R1, =const
+        UMULL R3, R2, R0, R1
+        STR R3, quotient
+        
+        
+        "stdint.h" <- c99 standards
+        
+    
+    Little vs Big Endian
+    
+    Single Byte, 8 bits
+        Little Endian 7 ------ 0
+                    MSB        LSB
+            In big endian, you store the most significant byte in the smallest address
+            Memory as well
+        Big Endian 0 ------ 7
+                MSB         LSB
+            In little endian, you store the least significant byte in the smallest address.
+            
+            
+            
+    Keep in mind: won't answer questions after 11 sunday night

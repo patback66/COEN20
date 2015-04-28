@@ -1,0 +1,66 @@
+4/22/15
+
+Assembly
+    Label: Opcode Operands
+    ; is a comment
+    need to use goto
+How the assembler works
+    
+Chapter 5:
+    Little Endian vs Big Endian
+    Understand registers - purpose of sign extender
+        32 bit registers, could load 8 bit from memory
+        sign extender extends 0's or 1's to keep byte signed properly
+    barrel shifter
+    processor status registers - used to capture status information
+    pipelining
+
+Chapter 6 (not on midterm)
+All registers are 32 bits wide
+
+Loading constants
+    x       =        x      +        4
+    3)store           1) load         2) add
+    
+    MOV R1, #-6
+    ; gets turned itno MVN R1,#-6
+    
+    ;= IS NOT AN INSTRUCTION
+    ;pseudo-op, means make this happen 
+    LDR R1,=5; becomes MOV R1,#5
+    LDR R1,=-6; becomes MVN R1,#5
+    
+    LDR R1,[200]
+    
+    
+    
+    ;;;;;;;;;;;;;;;;;;
+    LDR R1,[x]
+    LDR R2,=4
+    ADD R1,R1,R2
+    STR R1,[x]
+    
+    LDRSH, LDRSB for 32/16 bits
+    
+    print out page/slide 11
+
+variable <- constant
+    int32_t x32; -> LDR R0,=0; load constant zero
+    x32 = 0;        STR R0,x32; store all 32 bits
+    
+    int16_t x16; -> LDR R0,=0; load constant zero
+    x16 = 0;        STRH R0,x16; store lower 16 bits
+    int8_t x8; -> LDR R0, =0; load constant zero
+    x8 = 0;       STRB R0, x8; store lower 8 bits
+    int64_t x64; -> LDR,=0; load constant zero
+    x64 = 0;        STRD R0,R0,x65
+    
+variable <- variable (same size)
+    
+    
+    d is double
+    f for half
+    b for byte
+    
+    
+    
