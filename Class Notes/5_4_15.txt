@@ -1,0 +1,26 @@
+5/4/15
+
+3 Places where shifting is used in ARM Instructions
+    1) Address Calculation
+        Ex: LDR R0,[R1,R2,LSL#2]
+                           Only Use LSL
+                   [Starting address of array, subscript
+                           
+   2) As a shifted operand
+        MOV R0,R1,ASR#31
+            sign extend, shift right for sign bit
+            any shift operator is possible
+   
+   3)
+   
+   
+Types of Shift Operators
+    use s to capture from carry flag, else will not be modified
+    
+    
+Double Precision left Shift
+    R0 gets LSH, R1 gets MSH
+    
+    should be able to LSR, ASR
+        of 64 bits
+        FINAL EXAM QUESTION

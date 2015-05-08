@@ -1,0 +1,70 @@
+Operand size
+    8/16/32/64 defines what instruction to use
+    signed or unsigned -> 8/16
+        how to fill other bits
+        
+Demotion
+    need to truncate
+    
+Promotion
+    large signed <- small signed
+    need to sign extend
+    
+    MOV R1,R0; R1<-R0
+    ;Just copies, won't do it
+    
+    MOV R1, R0, ASR#31 ;R0, ASR#31 source operand
+                       ;ASR arithmetic shift right 32 bits
+                       ;this gives us only the MSB
+                       ;Doesn't modify R0
+                       
+                       
+Common mistakes
+    STR goes left to right
+    
+    
+LDR R0, x
+        ;Address of x
+        
+Memory Access modes
+    automatically update address
+    3 variations of each
+    
+    
+LDR R0, X
+LDR R0, [PC,#imm]
+PC->increment, "byte displacement"
+
+Offset Addressing
+    part of the instruction - already known
+    
+    List of operands separatied by commas
+    
+    
+    LDR R0,[R1]
+        ;square brackets -> memory reference
+        ;inside, all participants for calculating address
+        ;contents of R1 provide the address
+        ;works like a pointer
+    *p = 0;
+        becomes
+        LDR R0,=0
+        LDR R1, p
+        STR R0,[R1]
+        
+    ;;;;;;;;;;;
+    LDR R0, [R1, R2, LSL#2]
+        ;Address = R1 + (R2<<2)
+        ;        = R1 + 4 * R2
+        
+    
+    ;;;;;;;;;;;
+    int32_t x, y;
+    y = x + 5;
+    ;becomes
+    LDR R0,x
+    ADD R0,R0,#5
+    STR R0,y
+    
+    ;LLR logical shift left
+    ;inside address calculation, can only use LSL, ASR

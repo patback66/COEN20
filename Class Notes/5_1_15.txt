@@ -1,0 +1,113 @@
+Stacks
+    Push - starts at high memory, goes down
+    Stack grows towards lower addresses
+    
+    Push {R0,R7,R5,R2} ;up to 8 registers
+    
+        PUSH {R0}
+        PUSH {R1}
+        PUSH {R2}
+        ...
+        POP {R2}
+        POP {R1}
+        POP {R0}
+    
+    POP {R5,R0,R7,R2} ;will unstack in the proper order
+    
+    
+    ;;;;;;;;;;;;
+    
+    LDR R0,x
+    ADD R0,R0,#5
+    ;PUSH {R0}
+    ;LDR R0,...
+    ;
+    ;
+    ;POP {R0}
+    STR R0,y
+    
+    ;stack works like temp storage when need to use the 
+    ;register for other stuff
+    
+    
+Move/Add/Subtract Instructions
+    LDR R0,X; Copies content of var x into R0
+    
+    ADR R0,x; copies ADDRESS of var x into R0
+    
+    char * p, c;
+    p=&c;
+    
+    ADR R0, c
+    STR R0, p
+    
+    MOV R0,#20 ;R0 <- 20
+    MOV R0,R1 ; R0 <-
+    MOV R0,R1,LSL#2 ; R0<- 4*R1
+           --------
+           Source
+    
+    ;Test flags to make decisions
+    
+    ;v represents overflow
+    
+    
+    
+    ;;;;;;;
+    
+    SUB R0,R1,R2 ;R0<-R1-R2
+    
+    RSB R0,R1,R2 ;R0<-R2-R1
+    
+    
+;;;;;;;;;;;;;;
+
+Multiply
+    Can get double length product
+        also need to know if signed/unsigned
+        
+        int ab,b,c;
+        a = b * c;
+        32  32  32
+        
+        int32_t a,b;
+        int64_t c;
+        c = a * b;
+            int32_t
+            
+            
+Divide
+    64 / 32 = 32
+    
+    int a, b, c;
+    a - b/c;
+    
+    
+MLS/MLA
+    NOT same order
+    2 middle are the ones registered together
+    added or subtracted from fourth
+    put into the first
+    
+Remainder
+    C<- A%B
+    
+    LDR R0,A ;R0=dividend(A)
+    LDR R1,8 ;R1=divisor(B)
+    UDIV R2,R0,R1 ;R2=quotient(A/B)
+    MLS R0,R2,R1,R0 = R0=A-B*(A/B)
+    STR R0,C; c=remainder
+    
+    remainder = dividend - divisor * quotient
+    
+    
+Bitwise Instructions
+    BIC - bit clear, clears all specified bits at the destination
+    
+Bitfield Instructions
+    BFC bit field clear
+    BFI insert w/o changing other bits
+    SBFX/UBFX (un)signed bit field extract
+        difference is signed or unsigned and how it treats bits, sign extends
+        
+
