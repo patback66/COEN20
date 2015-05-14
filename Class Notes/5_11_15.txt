@@ -1,0 +1,93 @@
+Chapter 7
+Control Structures
+;;;;;;;;;;;;;;;;;;;;;
+
+
+if(x==0) c=1
+
+LDR R0,x
+CMP R0,#0
+<-BNE L1
+|  |     LDR R1,=1
+|  \/    STR R1, c
+|
+|_> L1
+    BNE L
+    
+    
+Compare/Test Instructions
+
+Branch Instructions
+    IT (If-Then)
+    Very rarely branch
+        Optimize for straight line
+    Making decisions and branching slows the program
+    IT is designed to avoid some of that
+    
+    CMP R0,#0
+    ITTEE EQ ; up to 4 instructions, t then e else
+    LDREQ R0, x; executed iff R0=0
+               ; EQ MUST MATCH
+    STREQ R0, y; controlled by the second T
+    MOVNE R1, R2
+    STRNE R1, z ; only use instruction or its opposite
+    
+    
+    LDR R0,A
+    CMP R0,#0
+    ITT EQ
+    LDREQ R0,=1
+    STREQ R0,B
+    
+
+Condition Codes
+    only need 10 to worry about
+    EQ, NE
+    GE (>=), LT (<), GT(>), LE(<=) <- for signed
+    
+    Unsigned
+    HI higher
+    HS higher or same
+    LO lower
+    LS lower or same
+    
+    
+    Opposites
+    <       >=
+    >=      <
+    >       <=
+    >=      <
+    
+    
+    
+    LDR R0,A
+    CMP R0,#0
+    BNE L1
+    
+if-then-else
+    
+    
+Compound Conditionals
+    Demorgan's
+    if(!(lower_limit<=x && x <= upper_limit)) goto L1
+    y=x
+    
+    L1:
+        if(x<lower_limit || x = lower_limit)
+            y=x;
+    L1:
+        if(x<lower_limit)goto L1
+        if(x>upper_limit)goto L1
+        y=x;
+    L1:
+    
+    LDR R0,x
+    LDR R1,lower_limit
+    CMP R0,R1
+    BLT L1
+    LDR R1,upper_limit
+    CMP R0,R1
+    BGT L1
+    STR R0,y
+    
+    

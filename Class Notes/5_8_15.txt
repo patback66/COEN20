@@ -9,7 +9,7 @@
     LDRD R0,R1,x
     LSR R0,R0,#1
     ORR R0,R0,R1,LSL#31
-    LSR R`1,R1,#1
+    LSR R`1,R1,#1?
     STRD R0,R1,x
     
     ;also use RRX

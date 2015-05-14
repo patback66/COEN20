@@ -1,0 +1,111 @@
+pu32 += u16;
+    LDRH R0,u16 ;R0<-u16
+    LDR R1,pu32 ;R1<-pu32
+    ADD R0,R1,R0,LSL#2 ;R0<-pu32+4*u16
+    STR R0,pu32
+
+
+
+u16 = *(pu32+1);
+    LDR R0,pu32
+    ADD R0,R0,#4    ;
+    LDR R0,[R0]     ;LDR R0,[R0,#4]
+    STRH R0,u16
+
+
+
+*pu32 += u16;
+    LDRH R0,u16
+    LDR R1,pu32
+    LDR R2,[R1]
+    ADD R0,R0,R2
+    STR R0,[R1]
+    
+a32[u16]+=1;
+    LDRH R0,u16
+    ADR R1,a32
+    LDR R2,[R1,R0,LSL#2]
+    ADD R2,R2,#1
+    STR R2,[R1,R0,LSL#2]
+    
+    
+Quiz monday: Only chapter 6
+
+
+Loops: basic structure
+
+Loops: Predetermined #Iterations
+    for(n=0;n<100;n++) {...}
+    
+    
+    LDR R0,=0
+    STR R0,n
+    top: LDR R0,n
+        CMP R0,:100
+        BGE done
+        ...
+        LDR R0,n
+        ADD R0,R0,#1
+    B top
+    done:
+    
+    ;;;;;;
+    DO EACH PART INDEPENDENTLY!
+        FORGET ABOUT WHAT EACH OTHER PART DOES!
+        REGISTERS MAY GET DIFFERENT VALUES
+        
+        
+    while(a!=b)
+    {
+        if(a>b)
+            a=a-b;
+        else
+            b=b-a;
+    }
+    
+    LDR R0,a
+    LDR R1,b
+    top: CMP R0,R1
+        BEQ done
+        ITE GT
+        SUBGT R0,R0,R1
+        SUBLE R1,R1,R0
+        B top
+    done:
+        ;R0=R1=GCD(a,b)
+
+THINGS TO CHECK WHEN WRITING ARM CODE
+
+c=a+b
+    LDR R0,a
+    LDR R1,bADS R1,R1,R0
+    STR R1,cLDR R0,a+4
+    LDR R1,b+4
+    ADC R1,R1,...
+    
+Function Call and Return
+    Function Call: BL function
+        -loads program counter pc with entry
+            point address of function
+        -saves return address in the link register
+    Function Return: BX LR
+        -copies link register back into program counter
+        
+    
+    main(c)
+    |
+    |
+    foo(); BL foo -------> foo;...
+                            ....
+                            BX LR
+                            <-----
+    |
+    |
+    |
+    
+    BUT ONLY ONE LINK REGISTER
+    
+ARM Procedure Call Standard
+
+        
+    
