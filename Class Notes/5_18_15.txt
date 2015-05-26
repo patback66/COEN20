@@ -1,0 +1,127 @@
+int32_t *p;
+p=p+1;
+LDR R0,pADD R0,R0,#4
+STR R0,p
+
+
+p=p+k;
+LDR R0,p
+LDR R1,k
+ADD R0,R0,R1,LSL#2
+STR R0,p
+
+;;;;;;;;;;;;;;;;;
+
+Register Assignment
+Cont'd from last time
+
+Dumbsort (cont'd)
+
+DumbSort    push {LR,R4,R5,R6,R7
+            MOV R4,R0 ;R4<-&data
+            MOV R5,R1 ;R5<-items
+            ;use R6=k, R7=k
+            LDR R6,=0 ;j=0
+OuterLoop:  MOV R0,R5 ;R0=items
+            SUB R0,R0#1 ;R0=items-1
+            CMP R6,R0 ;j<items-1
+            BGE OuterDone
+            ADD R7,R6,#1 ;k=j+1
+InnerLoop:  CMP R7,R5 ;k<items?
+            BGE InnerDone
+            MOV R0,R4 ;R0<-&data
+            MOV R1,R6 ;R1<-jMOV R2,R7 ;R2-k
+            BLS Reversed
+            CMP R0,#1 ;Reversed?
+            BNE NoSwap
+            ADD R0,R4,R6,LSL#4 ;R0<-&data[j]
+            ADD R1,R4,R7,LSL#2 ;R1<-&data[k]
+            BL Exchange
+NoSwap:     ADD R7,R7,#1
+            B Inner Loop
+InnerDone:  ADD R6,R6,#1 ;j<-j+1
+            BOuterLoop
+OuterDone   POP {LR,R4,R5,R6,R7
+            BX LR
+            
+            
+When coding a function in Assembly
+    1) Do the obvious
+        a) Start with the entry point label
+        b) Return (BX LR)
+    2) If your func. calls another func
+        Preserve LR (PUSH & POP)
+    3) You may need to copy params from R0-R3 to R4-R7 (as needed)
+        --> You MUST preserve R4-R7
+        
+        
+int8_t a,b,c foo(int16_t);
+
+    LDRSB R0, c
+    ADD R0,R0,#5
+    BL foo ;R0<-(c+5)
+    LDRSB R1, b
+    SUB R0,R1,R0
+    STRB ROa
+    
+void f3(int64_t *p64) {
+    *p64=0;
+}
+
+f3  ;R0<-p64
+    LDR R1,=0
+    STRD R1,R1,[R0]
+
+    BX LR
+
+int32_t f5(int32_t s32) {
+    int32_t f7(int32_t);
+    return s32+f7(s32);
+}
+
+f5  {PUSH LR,R4
+    MOV R4,R0
+    BL f5 ;R0<=f7(s32)
+    ADD R0,R0,R4
+    {POP LR,R4
+    BX LR
+    
+int32_t f6(void) {
+    return f8()+f9();
+}
+
+f6  PUSH {LR,R4
+    
+    BL f8
+    MOV R4,R0
+    BL f9
+    ADD R0,R0,R4
+    POP {LR
+    BX LR
+    
+int32_t product(int32_t a, int32_t b) {
+    if(a==0)
+        return 0;
+    if(a<0)
+        return -product(-a,b);
+    return b+product(a-1,b);
+}
+
+;R0<-a R1<-b
+product     PUSH {LR,R4}
+            MOV R4,R1
+            CMP R0,#0 ;a=0?
+            BNE NotZero
+            LDR R0,=0
+            B Done
+NotZero:    BGE NetLessThan0
+            NEG R0,R0 ;R0<- -a
+            BL product ;R0<-product(-a,b)
+            NEG R0,R0 ;R0<- -product(-a,b)
+            B Done
+NotLessThan0: SUB R0,R01,#1
+            R0<- a - 1
+            BL product
+            ADD R0,R0,R4
+DONE:       POP {LR,R4}
+            BX LR

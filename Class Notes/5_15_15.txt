@@ -1,0 +1,100 @@
+
+Identifiers only have meaning in compilation of c code.
+    DO NOTE USE VARIABLE YOU ARE LOADING IN, USE R0
+    
+    YOU WILL NOT HAVE MORE THAN FOUR PARAMETERS
+    
+    C: cannot return an array
+        can return a struct
+        
+        WE WILL ONLY EVER RETURN A SCALAR
+        
+int64_t multiply(int32_t, int32_t);
+
+    int64)t c;
+    
+    c=a*b;
+        //C sign extends, only really have 32 bit
+        
+Function Parameters
+    Copied into registors R0-R3 before the BL (branch)
+    Parameters are assigned to registers from left-to-right
+    
+Function Return Value
+    return a single scalar result
+    returns based on expectation
+        Usually in R0
+        64 bit in R0, R1
+        
+Preserving Register Content
+    Registers R0-R3 do not need to preserve their content
+    Registers R4-R8
+        MUST PRESERVE ORIGINAL CONTENT
+        PUSH on entry, POP befor return
+    
+    
+Calling a Function
+    Copy parameters into R0-R3, then call the function using
+        a BL instruction
+        
+Writing a Function
+    
+    Simple: Does NOT call another function
+    
+    NEVER reference parameters using an identifier
+    
+    Parameter values are already in registers R0
+    
+    Try to use only registers R0-R3
+    
+    If your function uses any register from R4-R8,
+        then you must PUSH those you use on entry and POP
+        them just before the return
+        
+
+    
+    foo: PUSH {LR,... ;parameters (if any) are in R0-R3
+    MOV R4, R0
+            ;Use R0 or R4 to reference 1st parameter (preferred)
+            
+    
+    BL bar  ;destroys LR, possibly R0-R3
+            ;Assume does not modify R4-R8
+            ;Use R4 to reference 1st parameter
+    
+    
+    pop {LR,...
+    BX LR
+    
+Register Assignment
+     void DumbSort(int data[], int items) {
+        int j,k;
+        for(j=0; j< items-1; j++) {
+            for(k=j+1;k<items;k++) {
+                if(Reversed(data,j,k)) {
+                    Exchange(&data[j],&data[k]);
+                }
+            }
+        }
+     }
+     
+     
+    int Reversed(int data[], int index1, int index2) {
+        return data[index1]>data[index2];
+    }
+    
+    Export Reversed
+    
+    ;R0 = &data
+    ;R1 = index1
+    ;R2 = index2
+    
+    Reversed LDR R1,[R0,R1,LSL #2]
+    LDR r2,[R0,R2,LSL#2]
+    CMP R1,R2
+    ITE GT
+    LDRGT R0,=1
+    LDRLE R0,=0
+    BX LR
+    
+        

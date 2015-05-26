@@ -1,0 +1,167 @@
+uint64_t a,b;
+int32_t c;
+if(a>b)c=0;
+
+            LDRD R0,R1,a
+            LDRD R2,R3b
+            CMP R1,R3
+            BGT DoIt
+            BLT Done
+            CMP R0,R2
+            BLE Done
+DoIt:
+            LDR R3,=0
+            STR R3,c
+Done:
+
+BEST VERSION:
+
+            LDRD R0,R1,a
+            LDRD R2,R3,b
+            SUBS R0,R0,R2
+            SBCS R1,R1,R3
+            BLE Done ;or BLS for unsigned
+
+if(a>0&&a<100)b=5;
+
+            LDR R0,a
+            CMP R0,#0
+            BLE Done
+            CMP R0,#100
+            BGE Done
+            
+    For compound conditions using &&, both condition 
+    branches must got to a label that bypasses the "then
+    clause"
+    
+if(a<0 || a > 100) b=5;
+
+            LDR R0,a
+            CMP R0,#0
+            BLT doit
+            CMP R0,#100
+            BLE done
+doit:
+            b=5;
+done:       
+
+
+
+while(x>0 && x<100)x++;
+//rearrange
+while(x>0) {
+    if(x>=0)break;
+    x++;
+}
+
+TOP:        LDR R0,x
+            CMP R0,#100
+            BLE Done
+            CMP R0,#100
+            BGE Done
+            ;;;;x++
+            
+            B Top
+Done:
+
+
+while(a<0||a>100)a++;
+
+while(1) {
+    if(a<0)goto doit;
+    if(a<=100)break;
+    a++; //doit
+}
+
+Top:        LDR R0,a
+            CMP R0,#0
+            BLT DoIt
+            CMP R0,#100
+            BLE Done
+            
+Doit:       ;;a++
+            B Top
+Done:
+
+if(a==b)c=0;
+else c=a;
+1)conditional branch
+            LDR R0,a
+            LDR R1,b
+            CMP R0,R1
+            BNE else
+            LDR R2,=0
+            STR R2,c
+            B Done
+    else:   STR R0,c
+    Done:
+2)IT block
+            LDR R0,a
+            LDR R1,b
+            CMP R0,R1
+            IT EQ
+            LDREQ R0,=0
+            STR R0,c
+            
+
+int64_t s64;
+f1(s64+1,5);
+        LDRD R0,R1,s64
+        ADDS R0,R0,#1
+        ADC R1,R1,$0
+        LDR R2,=5
+        BL f1
+
+x=f1(f2(x+2)+x);
+        LDR R4,x
+        ADD R0,R1,#2
+        BL f2               ;<- f2(x+2)
+        ADD R0,R0,R1        ;<- R0<-x+f2(x+2)
+        BL f1               ;<- R0<-f1(x+f2(x+2))
+        STR R0,x
+        
+
+int f(int*p) {
+    int temp;
+    temp =*p;
+    *p=0;
+    return temp;
+}
+f:      
+        LDR R1,[R0]
+        LDR R2,=0
+        STR R2,[R0]
+        MOV R0,R1
+        BX LR
+
+inf Fact(int n) {
+    if(n==0)
+        return 1;
+    return n*Fact(n-1);
+
+}
+
+Fact    Push {LR
+        CMP R0,#0
+        BEQ Done
+        MOV R1,R0
+        SUB R0,R0,#1
+        BL Fact
+        MUL R0,R0,R1
+Done:  
+        MOV R0,#0 
+        Pop {LR
+        BX LR
+        
+Fact:   PUSH {LR, R4}
+        MOV R4,R0
+        CMP R0,#0
+        BNE Recur
+        LDR R0,=1
+        B Done
+Recur:  SUB R0,R0,#1
+        BL Fact
+        MUL R0,R0,R4
+Done:
+        POP {LR,R4}
+        BX LR

@@ -1,0 +1,43 @@
+Programming in Assembly
+
+Relative Speed
+    Synchronization is important
+    Asynchronous Events
+    I/O Handshaking
+
+Time Behavior
+    
+I/O Data Ports
+
+Status Ports
+
+Interrupt Processing
+    Thread mode vs handler mode
+        bit 24?
+        normally 0
+        Exception occurs, set to 1
+        Exception response preserves old content from
+         status register
+         
+Exceptions
+    Definition: any condition that needs to halt the normal
+     sequential flow of instruction execution
+    Categories
+        reset
+        svc supervisor
+        loss of power
+    Attributes
+        An exception number
+        priority level
+        exception handler routine
+        entry in the vector table
+Exception Response
+    Instructions always stored in evens
+    
+Exception Return    
+
+Latency
+    Reduction
+        Abandoning or suspending instruction to start exception response
+        Late Arrival processing
+        Tail-Chaining
