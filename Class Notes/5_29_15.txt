@@ -1,0 +1,18 @@
+Arm Latency Reduction
+
+Exception and Interrupt Priorities
+
+    Nested Vectored Interrupt Controller
+        -Allows enable/disable of interrupts/exceptions
+        -Establishes relative priorities
+        
+    Exception Priorities and Vector Table Positions
+        -Lower priority = higher priority
+        -some are negative, cannot be changed
+        
+    Enabling/Disabling Interrupts
+        -CPSIE ; Enable all external interrupts
+        -CPSID ; Disable all external interrupts
+        
+    Stop: Buffering
+    

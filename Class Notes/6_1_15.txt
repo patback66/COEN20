@@ -1,0 +1,103 @@
+Chapter 8 Quiz
+    -No Programmming
+    -Short answer/fill in the blank
+    
+    
+if(x>0 && x<100) y=1;
+
+        LDR R0,x
+        CMP R0,#0
+        BLE Endif
+        CMP R0,#100
+        BGE Endif
+        LDR R0,=1
+        STR R0,y
+Endif:
+
+
+if(x>0)
+    y=1;
+else
+    z=2;
+
+        LDR R0,x
+        CMP R0,#0
+        ITTEEGT
+        LDRGT R0,=1
+        STRGT R0,y
+        LDRLE R0,=2
+        STRLE R0,z
+        
+        LDR R0,x
+        CMP R0,#0
+        BLE   Else
+Then:   LDR R0,=1
+        STR R0,y
+        BL Endif
+Else:   LDR R),=2
+        STR R0,z
+Endif
+
+
+if(x<0||x>100) y=1;
+
+        LDR R0,x
+        CMP R0,#0
+        BLT doit
+        CMP R0,#100
+        BLE Endif
+doit:   LDR R0,=1
+        STR R0,y
+Endif:  
+
+
+int32_t f(int32_t x) {return x+g(-x);
+
+        f: PUSH {LR,R4
+        ;R0=x
+        MOV R4,R0
+        NEG R0,R0
+        BL g ;R0<-g(-x)
+        ADD R0,R0,R4
+        POP {LR,R4
+        BX LR
+        
+int 32_t f(void) {
+    return g() + h();
+}
+
+    f:  PUSH {LR,R4
+    
+    BL g ;R0<-g()
+    MOV R4,R0; R4<-g()
+    BL h 
+    ADD R0,R4,R0
+    POP {LR,R4
+    BX LR
+    
+Waiting Times
+    1/50MHZ = 1/50e6  = 20e-9 = 20 nanoseconds
+        -time per clock cycle
+    
+Direct Memory Access
+
+    CPU->MEMORY<-DMA
+                -takes priority
+                
+    CPU
+    /\
+    ||  20 ns           
+    \/
+    MEM
+    
+    vs
+    CPU
+    /\/\/\
+     | | |  60ns
+    \/\/\/
+    MEM
+    
+    115Kbaud
+    115,000 bits/sec
+    115,000/11=bytes/sec
+    
