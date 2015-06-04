@@ -17,7 +17,12 @@ IntegerProduct64x64
 	; Bits 31..0 of the product must be returned in register R0
 	;
 	; The value of all other registers must be preserved!
-
-		BX		LR		; Return to calling program.
+        PUSH {R4,R5}
+        UMULL R4,R5,R0,R2       ;R4Lo, R5Hi, <- Alo*Blo
+        MLA R5,R0,R3,R5         ;R5 <- (Alo*Bhi)+R4lo
+        MLA R1,R1,R2,R5         ;ProductHi <- (AHi*Blo)+R5
+        MOV R0,R4               ;ProductLo <- R4
+        POP {R4,R5}
+	BX LR		        ; Return to calling program.
 
         END

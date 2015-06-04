@@ -16,7 +16,21 @@ isqrt
 	; value of all other registers must be preserved!
 
 	; Insert your code here....
-
-		BX	LR	; return
-
-        	END
+        LDR R1,=0x40000000
+        LDR R2,=0
+LOOP:   
+        CMP R1,#0               ; while(m != 0)
+        BEQ DONE
+        ORR R3,R2,R1            ; b = y | m
+        LSR R2,R2,#1            ; y = y >> 1
+        CMP R3,R0               
+        ITT LS                  ; if(b <= x)
+        SUBLS R0,R0,R3          ; x = x - b
+        ORRLS R2,R2,R1          ; y = y | m
+        LSR R1,R1,#2            ; m = m >> 2
+        B LOOP                  ; loop again
+DONE:
+        MOV R0,R2               ; R0<-R2
+        BX LR	                ; return y
+  
+        END

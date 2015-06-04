@@ -1770,30 +1770,30 @@
     <name>Source</name>
     <file>
       <name>$PROJ_DIR$\absval.c</name>
+      <excluded>
+        <configuration>Debug</configuration>
+      </excluded>
     </file>
     <file>
       <name>$PROJ_DIR$\absval.s</name>
-      <excluded>
-        <configuration>Debug</configuration>
-      </excluded>
     </file>
     <file>
       <name>$PROJ_DIR$\disc.c</name>
+      <excluded>
+        <configuration>Debug</configuration>
+      </excluded>
     </file>
     <file>
       <name>$PROJ_DIR$\disc.s</name>
-      <excluded>
-        <configuration>Debug</configuration>
-      </excluded>
     </file>
     <file>
       <name>$PROJ_DIR$\main4absval.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\main4disc.c</name>
       <excluded>
         <configuration>Debug</configuration>
       </excluded>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\main4disc.c</name>
     </file>
   </group>
 </project>

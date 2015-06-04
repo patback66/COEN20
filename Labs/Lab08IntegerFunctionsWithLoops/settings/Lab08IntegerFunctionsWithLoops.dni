@@ -1,0 +1,49 @@
+[Exceptions]
+StopOnUncaught=_ 0
+StopOnThrow=_ 0
+[DebugChecksum]
+Checksum=-1487131330
+[DisAssemblyWindow]
+NumStates=_ 0
+[InstructionProfiling]
+Enabled=_ 0
+[CodeCoverage]
+Enabled=_ 0
+[StackPlugin]
+Enabled=1
+OverflowWarningsEnabled=1
+WarningThreshold=90
+SpWarningsEnabled=1
+WarnHow=0
+UseTrigger=1
+TriggerName=main
+LimitSize=0
+ByteLimit=50
+[CallStackLog]
+Enabled=0
+[DriverProfiling]
+Enabled=0
+Mode=0
+Graph=0
+Symbiont=0
+[Log file]
+LoggingEnabled=_ 0
+LogFile=_ ""
+Category=_ 0
+[TermIOLog]
+LoggingEnabled=_ 0
+LogFile=_ ""
+[Disassemble mode]
+mode=0
+[Breakpoints]
+Bp0=_ "STD_CODE" "{$PROJ_DIR$\isqrt.s}.19.1@1" 1 0 0 0 "" 0 ""
+Bp1=_ "STD_CODE" "{$PROJ_DIR$\isqrt.s}.23.1@1" 1 0 0 0 "" 0 ""
+Count=2
+[Aliases]
+A0=_ "C:\Users\Dan\Desktop\New COEN 20 Labs\Lab Assignments\LM3S811\src\Wait4PushButton.c" ""
+A1=_ "C:\Users\Dan\Desktop\New COEN 20 Labs\Lab Assignments\LM3S811\src\display96x16x1.c" ""
+A2=_ "C:\Users\Dan\Desktop\New COEN 20 Labs\Lab Assignments\LM3S811\src\gpio.c" ""
+A3=_ "C:\Users\Dan\Desktop\New COEN 20 Labs\Lab Assignments\LM3S811\src\startup_ewarm.c" ""
+A4=_ "C:\Users\Dan\Desktop\New COEN 20 Labs\Lab Assignments\LM3S811\src\systick.c" ""
+Count=5
+SuppressDialog=1

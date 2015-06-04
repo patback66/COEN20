@@ -1770,12 +1770,12 @@
     <name>Source</name>
     <file>
       <name>$PROJ_DIR$\divide.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\divide.s</name>
       <excluded>
         <configuration>Debug</configuration>
       </excluded>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\divide.s</name>
     </file>
     <file>
       <name>$PROJ_DIR$\int64ToAscii.c</name>

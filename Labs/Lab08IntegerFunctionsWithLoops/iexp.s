@@ -17,7 +17,16 @@ iexp
 	; value of all other registers must be preserved!
 
 	; Insert your code here ...
+        LDR R2,=0       ; i
+        LDR R3,=1       ; result
+LOOP:                   ; for(i=0;i<n;i++)
+        CMP R2,R1       ; if(i<n)
+        BGE DONE
+        MULS R3,R3,R0   ; result*=x
+        ADD R2,R2,#1    ; i++
+        B LOOP
+DONE:
+        MOV R0,R3
+        BX LR		; return
 
-		BX	LR		; return
-
-		END
+        END

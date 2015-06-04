@@ -7,7 +7,7 @@
 
 		EXPORT  absval
 absval
-
+        ; Matthew Koken
 	; The first parameter (x) is passed to this function in R0.
 	; The function should return the result in R0.
 
@@ -16,8 +16,9 @@ absval
 	; value of all other registers must be preserved!
 
 	; Insert your code here ...
+        ASR R1,R0,#31 ; R1 <- sign bit of x
+        ADD R0,R0,R1  ; R0 <- signext + x
+        EOR R0,R0,R1  ; R0 <- returnValue ^ signext
+        BX LR         ; return
 
-
-		BX	LR		; return
-
-		END
+        END

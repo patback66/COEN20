@@ -1773,12 +1773,12 @@
     </file>
     <file>
       <name>$PROJ_DIR$\Integer64x64.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\Integer64x64.s</name>
       <excluded>
         <configuration>Debug</configuration>
       </excluded>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Integer64x64.s</name>
     </file>
     <file>
       <name>$PROJ_DIR$\main.c</name>

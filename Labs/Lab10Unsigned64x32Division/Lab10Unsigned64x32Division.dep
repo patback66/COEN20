@@ -2,94 +2,50 @@
 
 <project>
   <fileVersion>2</fileVersion>
-  <fileChecksum>1743476733</fileChecksum>
+  <fileChecksum>2866988127</fileChecksum>
   <configuration>
     <name>Debug</name>
     <outputs>
-      <file>$PROJ_DIR$\int64ToAscii.c</file>
-      <file>$TOOLKIT_DIR$\lib\dl7M_tln.a</file>
-      <file>$PROJ_DIR$\divide.c</file>
-      <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\main.o</file>
+      <file>$TOOLKIT_DIR$\config\generic_cortex.icf</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Normal.h</file>
+      <file>$TOOLKIT_DIR$\lib\shb_l.a</file>
       <file>$PROJ_DIR$\main.c</file>
-      <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
+      <file>$PROJ_DIR$\divide.c</file>
+      <file>$PROJ_DIR$\divide.s</file>
+      <file>$PROJ_DIR$\..\LM3S811\inc\pushbutton.h</file>
+      <file>$PROJ_DIR$\int64ToAscii.c</file>
+      <file>$TOOLKIT_DIR$\inc\c\xencoding_limits.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\ystdio.h</file>
       <file>$TOOLKIT_DIR$\inc\c\ysizet.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\divide.o</file>
+      <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.o</file>
+      <file>$TOOLKIT_DIR$\inc\c\stdio.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\Lab10Unsigned64x32Division.pbd</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\..\..\[ROOT_NODE]</file>
+      <file>$PROJ_DIR$\Debug\Obj\divide.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\int64ToAscii.o</file>
+      <file>$TOOLKIT_DIR$\lib\rt7M_tl.a</file>
       <file>$PROJ_DIR$\..\LM3S811\inc\display96x16x1.h</file>
       <file>$PROJ_DIR$\Debug\Obj\int64ToAscii.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\Lab10Unsigned64x32Division.pbd</file>
-      <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
-      <file>$TOOLKIT_DIR$\lib\m7M_tl.a</file>
+      <file>$PROJ_DIR$\Debug\Obj\divide.o</file>
       <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
+      <file>$TOOLKIT_DIR$\lib\m7M_tl.a</file>
+      <file>$TOOLKIT_DIR$\lib\dl7M_tln.a</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Threads.h</file>
       <file>$PROJ_DIR$\..\LM3S811\Debug\Exe\LM3S811drivers.a</file>
       <file>$PROJ_DIR$\Debug\Exe\Lab10Unsigned64x32Division.out</file>
       <file>$PROJ_DIR$\..\LM3S811\inc\hw_types.h</file>
       <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Normal.h</file>
-      <file>$TOOLKIT_DIR$\config\generic_cortex.icf</file>
-      <file>$PROJ_DIR$\..\LM3S811\inc\pushbutton.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\xencoding_limits.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\ystdio.h</file>
-      <file>$TOOLKIT_DIR$\lib\shb_l.a</file>
-      <file>$TOOLKIT_DIR$\inc\c\DLib_Threads.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\stdio.h</file>
-      <file>$TOOLKIT_DIR$\lib\rt7M_tl.a</file>
-      <file>$PROJ_DIR$\Debug\Obj\int64ToAscii.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\divide.pbi</file>
     </outputs>
     <file>
-      <name>$PROJ_DIR$\int64ToAscii.c</name>
-      <outputs>
-        <tool>
-          <name>ICCARM</name>
-          <file> 29</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 10</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>ICCARM</name>
-          <file> 6 19 18 14 20 3 23 26</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 6 19 18 14 3 23 26</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\divide.c</name>
-      <outputs>
-        <tool>
-          <name>ICCARM</name>
-          <file> 8</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 30</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>ICCARM</name>
-          <file> 6 19 18 14 20 3 23 26</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 6 19 18 14 3 23 26</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>[ROOT_NODE]</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\..\..\[ROOT_NODE]</name>
       <outputs>
         <tool>
           <name>ILINK</name>
-          <file> 16</file>
+          <file> 30</file>
         </tool>
       </outputs>
     </file>
@@ -97,22 +53,77 @@
       <name>$PROJ_DIR$\main.c</name>
       <outputs>
         <tool>
-          <name>ICCARM</name>
-          <file> 4</file>
+          <name>BICOMP</name>
+          <file> 23</file>
         </tool>
         <tool>
-          <name>BICOMP</name>
+          <name>ICCARM</name>
           <file> 12</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
-          <name>ICCARM</name>
-          <file> 27 19 18 14 20 3 23 26 7 24 6 17 9 22</file>
+          <name>BICOMP</name>
+          <file> 13 11 32 22 25 8 28 10 9 24 31 19 6</file>
         </tool>
         <tool>
+          <name>ICCARM</name>
+          <file> 13 11 32 22 1 25 8 28 10 9 24 31 19 6</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\divide.c</name>
+      <outputs>
+        <tool>
           <name>BICOMP</name>
-          <file> 27 19 18 14 3 23 26 7 24 6 17 9 22</file>
+          <file> 16</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 21</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 24 11 32 22 25 8 28</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 24 11 32 22 1 25 8 28</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\divide.s</name>
+      <outputs>
+        <tool>
+          <name>AARM</name>
+          <file> 21</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\int64ToAscii.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 20</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 17</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 24 11 32 22 25 8 28</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 24 11 32 22 1 25 8 28</file>
         </tool>
       </inputs>
     </file>
@@ -121,16 +132,25 @@
       <inputs>
         <tool>
           <name>BILINK</name>
-          <file> 30 10 12</file>
+          <file> 20 23</file>
         </tool>
       </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\..\..\[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>ILINK</name>
+          <file> 30</file>
+        </tool>
+      </outputs>
     </file>
     <file>
       <name>$PROJ_DIR$\Debug\Exe\Lab10Unsigned64x32Division.out</name>
       <inputs>
         <tool>
           <name>ILINK</name>
-          <file> 21 8 29 4 15 25 28 13 1</file>
+          <file> 0 21 17 12 29 2 18 26 27</file>
         </tool>
       </inputs>
     </file>

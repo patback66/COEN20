@@ -43,7 +43,7 @@
         </option>
         <option>
           <name>Input description</name>
-          <state>No specifier n, no float nor long long.</state>
+          <state>No specifier n, no float nor long long, no scan set, no assignment suppressing.</state>
         </option>
         <option>
           <name>Output variant</name>
@@ -52,7 +52,7 @@
         </option>
         <option>
           <name>Output description</name>
-          <state>No specifier a, A.</state>
+          <state>No specifier a, A, no specifier n, no float nor long long, no flags.</state>
         </option>
         <option>
           <name>GOutputBinary</name>
@@ -87,7 +87,7 @@
         </option>
         <option>
           <name>OGLastSavedByProductVersion</name>
-          <state>6.40.5.54273</state>
+          <state>6.10.5.52324</state>
         </option>
         <option>
           <name>GeneralEnableMisra</name>
@@ -143,7 +143,7 @@
         <option>
           <name>GBECoreSlave</name>
           <version>18</version>
-          <state>38</state>
+          <state>37</state>
         </option>
         <option>
           <name>OGUseCmsis</name>
@@ -1770,15 +1770,18 @@
     <name>Source</name>
     <file>
       <name>$PROJ_DIR$\iexp.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\iexp.s</name>
       <excluded>
         <configuration>Debug</configuration>
       </excluded>
     </file>
     <file>
+      <name>$PROJ_DIR$\iexp.s</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\isqrt.c</name>
+      <excluded>
+        <configuration>Debug</configuration>
+      </excluded>
     </file>
     <file>
       <name>$PROJ_DIR$\isqrt.s</name>
@@ -1788,12 +1791,12 @@
     </file>
     <file>
       <name>$PROJ_DIR$\main4iexp.c</name>
-      <excluded>
-        <configuration>Debug</configuration>
-      </excluded>
     </file>
     <file>
       <name>$PROJ_DIR$\main4isqrt.c</name>
+      <excluded>
+        <configuration>Debug</configuration>
+      </excluded>
     </file>
   </group>
 </project>
